@@ -259,7 +259,7 @@ int main(int argc, char* argv[]) {
                 clients[nextClientName].setSeatedSince(time);
                 tableOccupancy[tabllv] = nextClientName;
 
-                Event SEvent(time, EventType::ClientSeated, nextClientName, tabllv);
+                Event SEvent(time, EventType::SeatedFromQueue, nextClientName, tabllv);
                 events.push_back(SEvent);
                 //clients[nextClientName].addEvent(SEvent);
             }
@@ -291,7 +291,7 @@ int main(int argc, char* argv[]) {
     cout << openTime << endl;
     for (const Event& e : events) {
         cout << e.getTime() << " " << static_cast<int>(e.getType()) << " " << e.getClientName();
-        if (e.getType() == EventType::ClientSeated) {
+        if (e.getType() == EventType::ClientSeated || e.getType() == EventType::SeatedFromQueue) {
             cout << " " << e.getTableNumber();
         }
         cout << endl;
