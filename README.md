@@ -1,7 +1,8 @@
 ## Компиляция MinGW-w64 (g++):
 ### Через g++ вручную:
   g++ -std=c++17 -Wall -Wextra -pedantic -Iinclude -o task src/main.cpp src/Client.cpp src/Table.cpp src/Event.cpp src/Utils.cpp
-  
+#### Или с прямым указанием пути к g++.exe файлу,например:
+  C:\mingw64\bin\g++.exe -std=c++17 -Iinclude src/*.cpp -o task.exe
 ## Запуск программы:
   .\task.exe .\tests\<input_test.txt>
 
