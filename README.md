@@ -3,7 +3,7 @@
   g++ -std=c++17 -Wall -Wextra -pedantic -Iinclude -o task src/main.cpp src/Client.cpp src/Table.cpp src/Event.cpp src/Utils.cpp
   
 ## Запуск программы:
-  .\task.exe <input_test.txt>
+  .\task.exe .\tests\<input_test.txt>
 
 ## Структура проекта:
 - `main.cpp` — основной файл.
