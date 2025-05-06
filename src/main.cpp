@@ -177,12 +177,11 @@ int main(int argc, char* argv[]) {
             }
 
             auto it = tableOccupancy.find(tableNumber);
-            if (it != tableOccupancy.end() && it->second != name) {
+            if ((it != tableOccupancy.end() && it->second != name) || client.getTableNumber() == tableNumber) {
                 Event Errorevent(time, EventType::ErrorEvent, "PlaceIsBusy", tableNumber);
                 events.push_back(Errorevent);
                 continue;
             }
-
             // Освободим старый стол, если был
             if (client.getTableNumber() != -1 && client.getTableNumber() != tableNumber) {
 
@@ -193,7 +192,7 @@ int main(int argc, char* argv[]) {
 
                 tableOccupancy.erase(client.getTableNumber());
             }
-
+            
             client.setTableNumber(tableNumber);
             client.setSeatedSince(time);
             //tables[tableNumber - 1].setStartTime(Utils::toMinutes(time));
