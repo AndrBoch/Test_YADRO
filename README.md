@@ -1,5 +1,5 @@
 ## Компиляция MinGW-w64 (g++):
-# 1)Через g++ вручную:
+### 1)Через g++ вручную:
   g++ -std=c++17 -Wall -Wextra -pedantic -Iinclude -o task src/main.cpp src/Client.cpp src/Table.cpp src/Event.cpp src/Utils.cpp
   
 ## Запуск программы:
