@@ -207,7 +207,7 @@ int main(int argc, char* argv[]) {
             Event WaitingEvent(time, type, name, tableNumber);
             events.push_back(WaitingEvent);
 
-            if (tableOccupancy.size() < tableCount) {
+            if (tableOccupancy.size() < static_cast<size_t>(tableCount)) {
                 Event Errorevent(time, EventType::ErrorEvent, "ICanWaitNoLonger!", tableNumber);
                 events.push_back(Errorevent);
                 continue;
@@ -251,7 +251,7 @@ int main(int argc, char* argv[]) {
                 }
                 client.setTableNumber(-1);
             }
-            if (tableOccupancy.size()<tableCount && !waitingQueue.empty() ){
+            if (tableOccupancy.size() < static_cast<size_t>(tableCount) && !waitingQueue.empty() ){
 
                 string nextClientName = waitingQueue.front(); 
                 waitingQueue.pop_front();
